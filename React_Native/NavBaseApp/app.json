@@ -1,0 +1,9 @@
+{
+  "name": "NavBaseApp",
+  "displayName": "NavBaseApp",
+
+  "expo": {
+	  "sdkVersion": "27.0.0"
+  }
+
+}
