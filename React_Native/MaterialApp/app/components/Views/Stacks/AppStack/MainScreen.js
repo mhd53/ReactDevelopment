@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, Platform } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, withNavigation } from 'react-navigation';
 import { Icon } from 'native-base';
 
 // Import tab views
@@ -47,7 +47,7 @@ class MainScreen extends React.Component {
 	}
 	render() {
 		return (
-			<AppTabNaviator />
+			<AppTabNaviator screenProps={{ rootNavigation: this.props.navigation }} />
 			);
 		/*
 		return (
@@ -89,6 +89,8 @@ class MainScreen extends React.Component {
 			*/
 	}
 }
+
+/*
 export default createBottomTabNavigator({
 	HomeTab: {
 		screen: HomeTab
@@ -127,6 +129,7 @@ export default createBottomTabNavigator({
 		showIcon: true,
 	},
 }); 
+*/
 
 const AppTabNaviator = createBottomTabNavigator({
 	HomeTab: {
@@ -180,3 +183,5 @@ const styles = StyleSheet.create({
   }
 
 });
+
+export default MainScreen;

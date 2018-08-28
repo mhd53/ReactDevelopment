@@ -19,7 +19,8 @@ class ProfileScreen extends React.Component {
 
 	async _signOut() {
 		await AsyncStorage.clear();
-		this.props.navigation.navigate("Auth");
+		this.props.screenProps.rootNavigation.navigate("Auth");
+
 
 	}
 

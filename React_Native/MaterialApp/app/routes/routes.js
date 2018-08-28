@@ -10,14 +10,12 @@ import ForgotPasswordScreen from '../components/Views/Stacks/AuthStack/ForgotPas
 import SelectFormScreen from '../components/Views/Stacks/AuthStack/SelectFormScreen';
 
 // Import tab stacks
-import HomeT 
 
 const AppStack = createStackNavigator ({
 	Main: {
+		// screen: ({ navigation }) => <MainScreen screenProps={{ rootNavigation: navigation }} />
 		screen: MainScreen
 	},
-
-
 },
 
 {
@@ -53,6 +51,10 @@ export default createSwitchNavigator({
 	AuthLoading: {
 		screen: AuthLoadingScreen
 
+	},
+
+	Welcome: {
+		screenWelcomeScreen
 	},
 
 	App: {

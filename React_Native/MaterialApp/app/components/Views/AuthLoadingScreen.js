@@ -22,7 +22,7 @@ export default class AuthLoadingScreen extends React.Component {
 
 		// This will switch to appStack or authStack and this loading screen
 		// will be unmounted and thrown away.      
-		this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+		this.props.navigation.navigate(userToken ? 'App' : 'Welcome');
 	}
 
 	static navigationOptions = ({ navigation }) => ({

@@ -17,7 +17,7 @@ class ProfileTab extends React.Component {
 
 	render() {
 		return (
-			<ProfileStackNavigator />
+			<ProfileStackNavigator screenProps={{ rootNavigation: this.props.screenProps.rootNavigation }} />
 			);
 	}
 }
