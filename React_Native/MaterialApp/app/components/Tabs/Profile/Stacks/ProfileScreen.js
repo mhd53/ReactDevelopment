@@ -6,6 +6,8 @@ import { withNavigation } from 'react-navigation';
 
 // Import core components
 import ProfileHeader from '../../../Header/ProfileHeader';
+import UserCard from '../../../User/UserCard';
+import UserHoverPicture from '../../../User/UserHoverPicture';
 
 class ProfileScreen extends React.Component {
 	constructor(props) {
@@ -18,23 +20,30 @@ class ProfileScreen extends React.Component {
 	}
 
 	async _signOut() {
-		await AsyncStorage.clear();
+		await AsyncStorage.removeItem("userToken");
 		this.props.screenProps.rootNavigation.navigate("Auth");
 
 
 	}
 
 	static navigationOptions = ({navigation}) => ({
+		/*
 		header: <ProfileHeader handleBackButton={() => this.props.navigation.goBack()} 
 							   handleSignout={() =>  this.props.navigation.navigate("Auth")} />,
+	    */
+	   header: null,
 	})
 
 	render() {
 		return (
 			<Container>
+				<ProfileHeader />
+				<UserHoverPicture />
+				<View style={{marginTop: 35}}>
+					<UserCard numSaves={0} numFollowers={200} numFollowing={1} />
+				</View>
 				<Grid>
 					<Row size={2} backgroundColor="green" style={{ alignItems: 'center', justifyContent: 'center'}}>
-						<Thumbnail large source={require('../../../../assets/images/lion_profile_pic.jpg')} />
 					</Row>
 					<Row size={1} backgroundColor="red" style={{ alignItems: 'center', justifyContent: 'center' }}>
 						<Text style={{ fontWeight: 'bold', color: 'white'}}>Hello, World!</Text>

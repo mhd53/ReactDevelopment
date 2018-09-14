@@ -14,6 +14,7 @@ export default class LoginScreen extends React.Component {
 	}
 	async _login() {
 		await AsyncStorage.setItem("userToken", "abc");
+		await AsyncStorage.setItem("prevUser", 'valid');
 		this.props.navigation.navigate("App");
 	}
 

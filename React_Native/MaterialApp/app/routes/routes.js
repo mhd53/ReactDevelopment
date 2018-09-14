@@ -25,11 +25,40 @@ const AppStack = createStackNavigator ({
 
 });
 
-const AuthStack = createStackNavigator({
-	Welcome: {
-		screen: WelcomeScreen
+/*
+const createAuthStack = (loggedOut = false) => {
+	return createStackNavigator({
+		Welcome: {
+			screen: WelcomeScreen
+		},
+
+		SelectForm: {
+			screen: SelectFormScreen
+		},
+
+		Login: {
+			screen: LoginScreen
+		},
+
+		ForgotPass: {
+			screen: ForgotPasswordScreen
+		},
+
+		SignUp: {
+			screen: SignUpScreen
+		}
+
 	},
 
+	{
+		initialRouteName: loggedOut ? "SelectForm": "Welcome"
+
+	});
+}
+*/
+
+const AuthStack = createStackNavigator({
+	
 	SelectForm: {
 		screen: SelectFormScreen
 	},
@@ -54,7 +83,7 @@ export default createSwitchNavigator({
 	},
 
 	Welcome: {
-		screenWelcomeScreen
+		screen: WelcomeScreen
 	},
 
 	App: {
@@ -63,7 +92,6 @@ export default createSwitchNavigator({
 
 	Auth: {
 		screen: AuthStack
-
 	}
 },
 

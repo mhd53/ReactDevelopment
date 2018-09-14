@@ -18,11 +18,16 @@ export default class AuthLoadingScreen extends React.Component {
 	async checkUserAuth() {
 		// Fetch the token from storage, then navigate to appropriate stackNav.    
 		const userToken = await AsyncStorage.getItem('userToken'); 
+		const prevUser = await AsyncStorage.getItem('prevUser');
 		// await AsyncStorage.clear();
 
 		// This will switch to appStack or authStack and this loading screen
 		// will be unmounted and thrown away.      
-		this.props.navigation.navigate(userToken ? 'App' : 'Welcome');
+		if (!prevUser) {
+			this.props.navigation.navigate('Welcome')
+		} else {
+			this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+		}
 	}
 
 	static navigationOptions = ({ navigation }) => ({
